@@ -1,22 +1,47 @@
 package com.example.labdocs;
 
+import com.itextpdf.kernel.pdf.PdfDocument;
+import com.itextpdf.kernel.pdf.PdfWriter;
+import com.itextpdf.layout.Document;
+import com.itextpdf.layout.element.Paragraph;
 import javafx.fxml.FXML;
+import javafx.scene.control.DatePicker;
+import javafx.scene.control.TextField;
 import javafx.scene.control.Alert;
-import javafx.scene.control.Button;
-import javafx.scene.control.TextArea;
+
+import java.io.FileNotFoundException;
+import java.time.format.DateTimeFormatter;
 
 public class HelloController {
     @FXML
-    private TextArea textArea;
+    private TextField nomeAluno, emailAluno, telefoneAluno, nomeProjeto, localColeta, horaColeta, numeroAmostras;
 
     @FXML
-    private void onButtonClick() {
-        String nome = textArea.getText();
+    private DatePicker dataColeta;
 
-        if (nome.isEmpty()) {
-            exibirAlerta("Erro", "Por favor, digite algo antes de clicar no botão!");
-        } else {
-            exibirAlerta("Sucesso", "Olá, " + nome + "!");
+    @FXML
+    private void gerarPdf() {
+        String caminho = "Relatorio_Coleta.pdf";
+
+        try {
+            PdfWriter writer = new PdfWriter(caminho);
+            PdfDocument pdf = new PdfDocument(writer);
+            Document document = new Document(pdf);
+
+            document.add(new Paragraph("Relatório de Coleta").setBold().setFontSize(18));
+            document.add(new Paragraph("Nome do aluno: " + nomeAluno.getText()));
+            document.add(new Paragraph("Email: " + emailAluno.getText()));
+            document.add(new Paragraph("Telefone: " + telefoneAluno.getText()));
+            document.add(new Paragraph("Nome do projeto: " + nomeProjeto.getText()));
+            document.add(new Paragraph("Local da coleta: " + localColeta.getText()));
+            document.add(new Paragraph("Data da coleta: " + dataColeta.getValue().format(DateTimeFormatter.ofPattern("dd/MM/yyyy"))));
+            document.add(new Paragraph("Hora: " + horaColeta.getText()));
+            document.add(new Paragraph("Número de amostras: " + numeroAmostras.getText()));
+
+            document.close();
+            exibirAlerta("Sucesso", "PDF gerado com sucesso: " + caminho);
+        } catch (FileNotFoundException e) {
+            exibirAlerta("Erro", "Não foi possível criar o PDF.");
         }
     }
 

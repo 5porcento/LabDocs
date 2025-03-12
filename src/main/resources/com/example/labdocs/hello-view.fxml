@@ -1,14 +1,41 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.VBox?>
 
+<?import javafx.scene.control.DatePicker?>
 <VBox xmlns:fx="http://javafx.com/fxml"
       fx:controller="com.example.labdocs.HelloController"
-      spacing="20" alignment="CENTER">
+      spacing="10"
+      alignment="CENTER">
 
-    <TextArea fx:id="textArea"/>
-    <Button text="Clique Aqui" onAction="#onButtonClick"/>
+    <Label text="Nome do aluno:"/>
+    <TextField fx:id="nomeAluno"/>
+
+    <Label text="Email:"/>
+    <TextField fx:id="emailAluno"/>
+
+    <Label text="Telefone:"/>
+    <TextField fx:id="telefoneAluno"/>
+
+    <Label text="Nome do Projeto:"/>
+    <TextField fx:id="nomeProjeto"/>
+
+    <Label text="Local da Coleta:"/>
+    <TextField fx:id="localColeta"/>
+
+    <Label text="Data da Coleta:"/>
+    <DatePicker fx:id="dataColeta"/>
+
+    <Label text="Hora:"/>
+    <TextField fx:id="horaColeta"/>
+
+    <Label text="Número de Amostras:"/>
+    <TextField fx:id="numeroAmostras"/>
+
+    <Button text="Gerar PDF" onAction="#gerarPdf"/>
 
 </VBox>
+
