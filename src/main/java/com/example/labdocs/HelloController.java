@@ -5,6 +5,7 @@ import com.itextpdf.kernel.pdf.PdfWriter;
 import com.itextpdf.layout.Document;
 import com.itextpdf.layout.element.Paragraph;
 import javafx.fxml.FXML;
+import javafx.scene.control.CheckBox;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextField;
 import javafx.scene.control.Alert;
@@ -14,10 +15,13 @@ import java.time.format.DateTimeFormatter;
 
 public class HelloController {
     @FXML
-    private TextField nomeAluno, emailAluno, telefoneAluno, nomeProjeto, localColeta, horaColeta, numeroAmostras;
-
+    private TextField nomeAluno, emailAluno,nomeOrientador ,telefoneAluno,horaColeta, nomeProjeto, localColeta, numeroAmostras;
     @FXML
     private DatePicker dataColeta;
+    @FXML
+    private CheckBox iniciacaoCientifica,tcc,mestrado,doutorado;
+
+
 
     @FXML
     private void gerarPdf() {

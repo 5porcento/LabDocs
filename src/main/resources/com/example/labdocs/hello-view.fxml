@@ -1,41 +1,55 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
-<?import javafx.scene.layout.VBox?>
-
 <?import javafx.scene.control.DatePicker?>
-<VBox xmlns:fx="http://javafx.com/fxml"
-      fx:controller="com.example.labdocs.HelloController"
-      spacing="10"
-      alignment="CENTER">
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<GridPane xmlns:fx="http://javafx.com/fxml/1"
+          fx:controller="com.example.labdocs.HelloController"
+          hgap="10"
+          vgap="10"
+          stylesheets="style.css"
+          >
 
-    <Label text="Nome do aluno:"/>
-    <TextField fx:id="nomeAluno"/>
+    <Label text="Nome do aluno:" GridPane.columnIndex="0" GridPane.rowIndex="0"/>
+    <TextField fx:id="nomeAluno" GridPane.columnIndex="1" GridPane.rowIndex="0"/>
 
-    <Label text="Email:"/>
-    <TextField fx:id="emailAluno"/>
+    <Label text="Email:" GridPane.columnIndex="0" GridPane.rowIndex="1"/>
+    <TextField fx:id="emailAluno" GridPane.columnIndex="1" GridPane.rowIndex="1"/>
+    <Label text="Telefone:" GridPane.columnIndex="0" GridPane.rowIndex="2"/>
+    <TextField fx:id="telefoneAluno" GridPane.columnIndex="1" GridPane.rowIndex="2"/>
 
-    <Label text="Telefone:"/>
-    <TextField fx:id="telefoneAluno"/>
+    <Label text="Nome do Projeto:" GridPane.columnIndex="0" GridPane.rowIndex="3"/>
+    <TextField fx:id="nomeProjeto" GridPane.columnIndex="1" GridPane.rowIndex="3"/>
 
-    <Label text="Nome do Projeto:"/>
-    <TextField fx:id="nomeProjeto"/>
+    <Label text="Data da Coleta:" GridPane.columnIndex="0" GridPane.rowIndex="4"/>
+    <DatePicker fx:id="dataColeta" GridPane.columnIndex="1" GridPane.rowIndex="4"/>
 
-    <Label text="Local da Coleta:"/>
-    <TextField fx:id="localColeta"/>
+    <Label text="Hora da Coleta:" GridPane.columnIndex="0" GridPane.rowIndex="5"/>
+    <TextField fx:id="horaColeta" GridPane.columnIndex="1" GridPane.rowIndex="5"/>
 
-    <Label text="Data da Coleta:"/>
-    <DatePicker fx:id="dataColeta"/>
+    <Label text="Número de Amostras:" GridPane.columnIndex="0" GridPane.rowIndex="6"/>
+    <TextField fx:id="numeroAmostras" GridPane.columnIndex="1" GridPane.rowIndex="6"/>
 
-    <Label text="Hora:"/>
-    <TextField fx:id="horaColeta"/>
+    <HBox spacing="10" GridPane.rowIndex="7" GridPane.columnIndex="0" GridPane.columnSpan="8">
+        <Label text="Origem da Amostra:"/>
+        <CheckBox text="SAA"/>
+        <CheckBox text="Rio"/>
+        <CheckBox text="Lago"/>
+        <CheckBox text="Igarapé"/>
+        <CheckBox text="Outro"/>
+    </HBox>
 
-    <Label text="Número de Amostras:"/>
-    <TextField fx:id="numeroAmostras"/>
+    <HBox spacing="10" GridPane.columnIndex="0" GridPane.rowIndex="9">
+        <Label text="Uso preponderante:"/>
+        <CheckBox text="Consumo Humano"/>
+        <CheckBox text="Balneabilidade"/>
+        <CheckBox text="Outros"/>
+    </HBox>
 
-    <Button text="Gerar PDF" onAction="#gerarPdf"/>
 
-</VBox>
+</GridPane>
 
