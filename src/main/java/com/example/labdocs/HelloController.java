@@ -9,9 +9,11 @@ import javafx.scene.control.CheckBox;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextField;
 import javafx.scene.control.Alert;
-
 import java.io.FileNotFoundException;
 import java.time.format.DateTimeFormatter;
+import java.util.Arrays;
+import java.util.List;
+import java.util.stream.Collectors;
 
 public class HelloController {
     @FXML
@@ -19,13 +21,21 @@ public class HelloController {
     @FXML
     private DatePicker dataColeta;
     @FXML
-    private CheckBox iniciacaoCientifica,tcc,mestrado,doutorado;
-
+    private CheckBox tcc,mestrado,doutorado,iniciacaoCientifica,saa,rio,lago,igarape,outro;
 
 
     @FXML
     private void gerarPdf() {
         String caminho = "Relatorio_Coleta.pdf";
+
+        // Obter os valores dos CheckBox com o novo método
+        String nivelFormacao = getSelectedCheckboxes(
+                Arrays.asList(tcc,mestrado,doutorado,iniciacaoCientifica)
+        );
+        String origemColeta = getSelectedCheckboxes(
+                Arrays.asList(saa,rio,lago,igarape,outro)
+        );
+        //TODO adicionar os demais checkBoxs
 
         try {
             PdfWriter writer = new PdfWriter(caminho);
@@ -35,12 +45,15 @@ public class HelloController {
             document.add(new Paragraph("Relatório de Coleta").setBold().setFontSize(18));
             document.add(new Paragraph("Nome do aluno: " + nomeAluno.getText()));
             document.add(new Paragraph("Email: " + emailAluno.getText()));
+            document.add(new Paragraph("Nome do Orientador: " + nomeOrientador.getText()));
             document.add(new Paragraph("Telefone: " + telefoneAluno.getText()));
             document.add(new Paragraph("Nome do projeto: " + nomeProjeto.getText()));
             document.add(new Paragraph("Local da coleta: " + localColeta.getText()));
             document.add(new Paragraph("Data da coleta: " + dataColeta.getValue().format(DateTimeFormatter.ofPattern("dd/MM/yyyy"))));
             document.add(new Paragraph("Hora: " + horaColeta.getText()));
             document.add(new Paragraph("Número de amostras: " + numeroAmostras.getText()));
+            document.add(new Paragraph("Nivel Academico: " + nivelFormacao));
+            document.add(new Paragraph("Origem da Amostra: " + origemColeta));
 
             document.close();
             exibirAlerta("Sucesso", "PDF gerado com sucesso: " + caminho);
@@ -56,4 +69,13 @@ public class HelloController {
         alert.setContentText(mensagem);
         alert.showAndWait();
     }
+
+    // Método para obter os valores dos CheckBox marcados
+    private String getSelectedCheckboxes(List<CheckBox> checkBoxes) {
+        return checkBoxes.stream()
+                .filter(CheckBox::isSelected).map(CheckBox::getText)
+                .collect(Collectors
+                        .joining(", "));
+    }
+
 }

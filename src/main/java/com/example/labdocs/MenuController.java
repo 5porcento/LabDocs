@@ -29,8 +29,15 @@ public class MenuController {
         FXMLLoader loader = new FXMLLoader(getClass().getResource(fxmlFile));
         Parent root = loader.load();
         Stage stage = new Stage();
+
         stage.setTitle(titulo);
-        stage.setScene(new Scene(root));
+        stage.setScene(new Scene(root, 800, 600)); // Definir largura e altura padrão
+        stage.setMinWidth(400);
+        stage.setMinHeight(300);
+        stage.setMaxWidth(1200);
+        stage.setMaxHeight(800);
+        stage.setResizable(false); // Permite redimensionamento
+
         stage.show();
     }
 }

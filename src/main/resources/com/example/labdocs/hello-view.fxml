@@ -7,6 +7,7 @@
 <?import javafx.scene.control.CheckBox?>
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.HBox?>
+<?import javafx.scene.control.Button?>
 <GridPane xmlns:fx="http://javafx.com/fxml/1"
           fx:controller="com.example.labdocs.HelloController"
           hgap="10"
@@ -19,37 +20,60 @@
 
     <Label text="Email:" GridPane.columnIndex="0" GridPane.rowIndex="1"/>
     <TextField fx:id="emailAluno" GridPane.columnIndex="1" GridPane.rowIndex="1"/>
+
     <Label text="Telefone:" GridPane.columnIndex="0" GridPane.rowIndex="2"/>
     <TextField fx:id="telefoneAluno" GridPane.columnIndex="1" GridPane.rowIndex="2"/>
 
     <Label text="Nome do Projeto:" GridPane.columnIndex="0" GridPane.rowIndex="3"/>
     <TextField fx:id="nomeProjeto" GridPane.columnIndex="1" GridPane.rowIndex="3"/>
 
-    <Label text="Data da Coleta:" GridPane.columnIndex="0" GridPane.rowIndex="4"/>
-    <DatePicker fx:id="dataColeta" GridPane.columnIndex="1" GridPane.rowIndex="4"/>
+    <Label text="Nome do Orientador:" GridPane.columnIndex="0" GridPane.rowIndex="4"/>
+    <TextField fx:id="nomeOrientador" GridPane.columnIndex="1" GridPane.rowIndex="4"/>
 
-    <Label text="Hora da Coleta:" GridPane.columnIndex="0" GridPane.rowIndex="5"/>
-    <TextField fx:id="horaColeta" GridPane.columnIndex="1" GridPane.rowIndex="5"/>
+    <Label text="Local de Coleta:" GridPane.columnIndex="0" GridPane.rowIndex="5"/>
+    <TextField fx:id="localColeta" GridPane.columnIndex="1" GridPane.rowIndex="5"/>
 
-    <Label text="Número de Amostras:" GridPane.columnIndex="0" GridPane.rowIndex="6"/>
-    <TextField fx:id="numeroAmostras" GridPane.columnIndex="1" GridPane.rowIndex="6"/>
+    <Label text="Data da Coleta:" GridPane.columnIndex="0" GridPane.rowIndex="6"/>
+    <DatePicker fx:id="dataColeta" GridPane.columnIndex="1" GridPane.rowIndex="6"/>
 
-    <HBox spacing="10" GridPane.rowIndex="7" GridPane.columnIndex="0" GridPane.columnSpan="8">
+    <Label text="Hora da Coleta:" GridPane.columnIndex="0" GridPane.rowIndex="7"/>
+    <TextField fx:id="horaColeta" GridPane.columnIndex="1" GridPane.rowIndex="7"/>
+
+    <Label text="Número de Amostras:" GridPane.columnIndex="0" GridPane.rowIndex="8"/>
+    <TextField fx:id="numeroAmostras" GridPane.columnIndex="1" GridPane.rowIndex="8"/>
+
+    <HBox spacing="10" GridPane.rowIndex="9" GridPane.columnIndex="0" GridPane.columnSpan="8">
         <Label text="Origem da Amostra:"/>
-        <CheckBox text="SAA"/>
-        <CheckBox text="Rio"/>
-        <CheckBox text="Lago"/>
-        <CheckBox text="Igarapé"/>
-        <CheckBox text="Outro"/>
+        <CheckBox text="SAA" fx:id="saa"/>
+        <CheckBox text="Rio" fx:id="rio"/>
+        <CheckBox text="Lago" fx:id="lago"/>
+        <CheckBox text="Igarapé" fx:id="igarape"/>
+        <CheckBox text="Outro" fx:id="outro"/>
     </HBox>
 
-    <HBox spacing="10" GridPane.columnIndex="0" GridPane.rowIndex="9">
+    <HBox spacing="10" GridPane.columnIndex="0" GridPane.rowIndex="10">
+        <Label text="Tratamento da água:"/>
+        <CheckBox text="Tratada"/>
+        <CheckBox text="Não Tratada"/>
+    </HBox>
+
+    <HBox spacing="10" GridPane.columnIndex="0" GridPane.rowIndex="11">
         <Label text="Uso preponderante:"/>
         <CheckBox text="Consumo Humano"/>
         <CheckBox text="Balneabilidade"/>
         <CheckBox text="Outros"/>
     </HBox>
 
+    <HBox spacing="10" GridPane.columnIndex="0" GridPane.rowIndex="12">
+        <Label text="Nivel:"/>
+        <CheckBox text="Iniciação Cientifica" fx:id="iniciacaoCientifica" />
+        <CheckBox text="TCC" fx:id="tcc"/>
+        <CheckBox text="Mestrado" fx:id="mestrado"/>
+        <CheckBox text="Doutorado" fx:id="doutorado"/>
+    </HBox>
+
+
+    <Button text="Gerar PDF" onAction="#gerarPdf" GridPane.columnSpan="2" GridPane.rowIndex="13"/>
 
 </GridPane>
 
