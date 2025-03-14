@@ -17,7 +17,7 @@ import java.util.stream.Collectors;
 
 public class HelloController {
     @FXML
-    private TextField nomeAluno, emailAluno,nomeOrientador ,telefoneAluno,horaColeta, nomeProjeto, localColeta, numeroAmostras;
+    private TextField nomeAluno, emailAluno,nomeOrientador ,telefoneAluno,horaColeta, nomeProjeto, localColeta, numeroAmostras,responsavelColeta;
     @FXML
     private DatePicker dataColeta;
     @FXML
@@ -54,6 +54,7 @@ public class HelloController {
             document.add(new Paragraph("Número de amostras: " + numeroAmostras.getText()));
             document.add(new Paragraph("Nivel Academico: " + nivelFormacao));
             document.add(new Paragraph("Origem da Amostra: " + origemColeta));
+            document.add(new Paragraph("Responsavel pela Coleta: " + responsavelColeta.getText()));
 
             document.close();
             exibirAlerta("Sucesso", "PDF gerado com sucesso: " + caminho);

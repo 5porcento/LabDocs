@@ -25,11 +25,10 @@ public class MenuController {
         abrirNovaTela("ResumoColeta.fxml", "Resumo da Coleta");
     }
 
-    private void abrirNovaTela(String fxmlFile, String titulo) throws IOException {
+    private void abrirNovaTela(String  fxmlFile, String titulo) throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource(fxmlFile));
         Parent root = loader.load();
         Stage stage = new Stage();
-
         stage.setTitle(titulo);
         stage.setScene(new Scene(root, 800, 600)); // Definir largura e altura padrão
         stage.setMinWidth(400);
