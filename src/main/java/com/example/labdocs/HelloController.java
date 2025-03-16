@@ -17,11 +17,15 @@ import java.util.stream.Collectors;
 
 public class HelloController {
     @FXML
-    private TextField nomeAluno, emailAluno,nomeOrientador ,telefoneAluno,horaColeta, nomeProjeto, localColeta, numeroAmostras,responsavelColeta;
+    private TextField nomeAluno, emailAluno,nomeOrientador ,telefoneAluno,horaColeta, nomeProjeto, localColeta, numeroAmostras,responsavelColeta,metais,descricaoPontos;
     @FXML
     private DatePicker dataColeta;
     @FXML
-    private CheckBox tcc,mestrado,doutorado,iniciacaoCientifica,saa,rio,lago,igarape,outro;
+    private CheckBox tcc,mestrado,doutorado,iniciacaoCientifica,saa,
+            rio,lago,igarape,outro,sai,sac,
+            microbiologicas,quimica,fisioQuimica,
+            torneira,torneiraDeFiltro,torneiraDeBebedouro,caixaDAgua,cisterena,outroPonto,
+            turbidez,cor,ph,condutividade,od,std,nitrato,nitrito,fosfaro,colifTotal,colifTermo,eColi;
 
 
     @FXML
@@ -33,8 +37,19 @@ public class HelloController {
                 Arrays.asList(tcc,mestrado,doutorado,iniciacaoCientifica)
         );
         String origemColeta = getSelectedCheckboxes(
-                Arrays.asList(saa,rio,lago,igarape,outro)
+                Arrays.asList(saa,rio,lago,igarape,outro,sai,sac)
         );
+        String analisesSolicitadas = getSelectedCheckboxes(
+                Arrays.asList(microbiologicas,quimica,fisioQuimica)
+        );
+        String pontoColeta = getSelectedCheckboxes(
+                Arrays.asList(torneira,torneiraDeFiltro,torneiraDeBebedouro,caixaDAgua,cisterena,outroPonto)
+        );
+        String parametroColeta = getSelectedCheckboxes(
+                Arrays.asList(turbidez,cor,ph,condutividade,od,std,nitrato,nitrito,fosfaro,colifTotal,colifTermo,eColi)
+        );
+
+
         //TODO adicionar os demais checkBoxs
 
         try {
@@ -55,6 +70,11 @@ public class HelloController {
             document.add(new Paragraph("Nivel Academico: " + nivelFormacao));
             document.add(new Paragraph("Origem da Amostra: " + origemColeta));
             document.add(new Paragraph("Responsavel pela Coleta: " + responsavelColeta.getText()));
+            document.add(new Paragraph("Analises Solicitadas: " + analisesSolicitadas));
+            document.add(new Paragraph("Pontos de Coleta: " + pontoColeta));
+            document.add(new Paragraph("Parâmetros definidos: " + parametroColeta));
+            document.add(new Paragraph("Descrição dos Pontos : " + descricaoPontos.getText()));
+            document.add(new Paragraph("Elementos Traços(Metais) : " + metais.getText()));
 
             document.close();
             exibirAlerta("Sucesso", "PDF gerado com sucesso: " + caminho);

@@ -30,12 +30,10 @@ public class MenuController {
         Parent root = loader.load();
         Stage stage = new Stage();
         stage.setTitle(titulo);
-        stage.setScene(new Scene(root, 800, 600)); // Definir largura e altura padrão
-        stage.setMinWidth(400);
-        stage.setMinHeight(300);
-        stage.setMaxWidth(1200);
-        stage.setMaxHeight(800);
-        stage.setResizable(false); // Permite redimensionamento
+        stage.setScene(new Scene(root)); // Definir largura e altura padrão
+
+
+        stage.setMaximized(true); // Permite redimensionamento
 
         stage.show();
     }

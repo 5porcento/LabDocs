@@ -10,6 +10,7 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ScrollPane?>
 
+
 <ScrollPane fitToWidth="true" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.labdocs.HelloController">
 <GridPane alignment="CENTER" vgap="10" hgap="10" stylesheets="style.css">
 
@@ -40,29 +41,34 @@
     <Label text="Número de Amostras:" GridPane.columnIndex="0" GridPane.rowIndex="8"/>
     <TextField fx:id="numeroAmostras" GridPane.columnIndex="1" GridPane.rowIndex="8"/>
 
-    <HBox spacing="10" GridPane.rowIndex="9" GridPane.columnIndex="0" GridPane.columnSpan="8">
+    <Label text="Responsavel pela Coleta:" GridPane.columnIndex="0" GridPane.rowIndex="9"/>
+    <TextField fx:id="responsavelColeta" GridPane.columnIndex="1" GridPane.rowIndex="9"/>
+
+    <HBox spacing="10" GridPane.rowIndex="10" GridPane.columnIndex="0" GridPane.columnSpan="8">
         <Label text="Origem da Amostra:"/>
-        <CheckBox text="SAA" fx:id="saa"/>
+        <CheckBox text="Sistema de Abastecimento(SAA)" fx:id="saa"/>
         <CheckBox text="Rio" fx:id="rio"/>
         <CheckBox text="Lago" fx:id="lago"/>
         <CheckBox text="Igarapé" fx:id="igarape"/>
+        <CheckBox text="Coletivo(SAC)" fx:id="sac"/>
+        <CheckBox text="Individual(SAI)" fx:id="sai"/>
         <CheckBox text="Outro" fx:id="outro"/>
     </HBox>
 
-    <HBox spacing="10" GridPane.columnIndex="0" GridPane.rowIndex="10">
+    <HBox spacing="10" GridPane.columnIndex="0" GridPane.rowIndex="11">
         <Label text="Tratamento da água:"/>
         <CheckBox text="Tratada"/>
         <CheckBox text="Não Tratada"/>
     </HBox>
 
-    <HBox spacing="10" GridPane.columnIndex="0" GridPane.rowIndex="11">
+    <HBox spacing="10" GridPane.columnIndex="0" GridPane.rowIndex="12">
         <Label text="Uso preponderante:"/>
         <CheckBox text="Consumo Humano"/>
         <CheckBox text="Balneabilidade"/>
         <CheckBox text="Outros"/>
     </HBox>
 
-    <HBox spacing="10" GridPane.columnIndex="0" GridPane.rowIndex="12">
+    <HBox spacing="10" GridPane.columnIndex="0" GridPane.rowIndex="13">
         <Label text="Nivel:"/>
         <CheckBox text="Iniciação Cientifica" fx:id="iniciacaoCientifica" />
         <CheckBox text="TCC" fx:id="tcc"/>
@@ -70,7 +76,47 @@
         <CheckBox text="Doutorado" fx:id="doutorado"/>
     </HBox>
 
-    <Button text="Gerar PDF" onAction="#gerarPdf" GridPane.columnSpan="2" GridPane.rowIndex="13"/>
+    <HBox spacing="10" GridPane.columnIndex="0" GridPane.rowIndex="14">
+        <Label text="Analises Solicitadas:"/>
+        <CheckBox text="Microbiologicas" fx:id="microbiologicas" />
+        <CheckBox text="Quimica" fx:id="quimica"/>
+        <CheckBox text="Fisico-Quimica" fx:id="fisioQuimica"/>
+    </HBox>
+
+    <HBox spacing="10" GridPane.columnIndex="0" GridPane.rowIndex="15">
+        <Label text="Ponto de Coleta:"/>
+        <CheckBox text="Torneira" fx:id="torneira" />
+        <CheckBox text="Torneira de filtro" fx:id="torneiraDeFiltro" />
+        <CheckBox text="Torneira de Bebedouro" fx:id="torneiraDeBebedouro" />
+        <CheckBox text="Caixa D'Agua " fx:id="caixaDAgua"/>
+        <CheckBox text="Cisterna" fx:id="cisterena"/>
+        <CheckBox text="Outros" fx:id="outroPonto"/>
+    </HBox>
+
+    <HBox spacing="10" GridPane.columnIndex="0" GridPane.rowIndex="16">
+        <Label text="Especifique os Parâmetros definidos:"/>
+        <CheckBox text="Turbidez" fx:id="turbidez" />
+        <CheckBox text="Cor" fx:id="cor" />
+        <CheckBox text="PH" fx:id="ph" />
+        <CheckBox text="Condutividade" fx:id="condutividade"/>
+        <CheckBox text="OD" fx:id="od"/>
+        <CheckBox text="STD" fx:id="std"/>
+
+        <CheckBox text="Nitrato" fx:id="nitrato" />
+        <CheckBox text="Nitrito" fx:id="nitrito" />
+        <CheckBox text="Fosfáro" fx:id="fosfaro" />
+        <CheckBox text="Colif.Totais" fx:id="colifTotal"/>
+        <CheckBox text="Colif.Termotolerantes" fx:id="colifTermo"/>
+        <CheckBox text="E.Coli" fx:id="eColi"/>
+    </HBox>
+
+    <Label text="Descrição dos Pontos:" GridPane.columnIndex="0" GridPane.rowIndex="17"/>
+    <TextField fx:id="descricaoPontos" GridPane.columnIndex="1" GridPane.rowIndex="17"/>
+
+    <Label text="Elementos Traços(Metais):" GridPane.columnIndex="0" GridPane.rowIndex="18"/>
+    <TextField fx:id="metais" GridPane.columnIndex="1" GridPane.rowIndex="18"/>
+
+    <Button text="Gerar PDF" onAction="#gerarPdf" GridPane.columnSpan="2" GridPane.rowIndex="19"/>
 
 </GridPane>
 
