@@ -74,14 +74,15 @@
 
         <HBox spacing="10" GridPane.columnIndex="0" GridPane.rowIndex="16">
             <Label text="Tratamento da água:"/>
-            <CheckBox text="Tratada"/>
-            <CheckBox text="Não Tratada"/>
+            <CheckBox text="Tratada" fx:id="tratada"/>
+            <CheckBox text="Não Tratada" fx:id="naoTratada"/>
         </HBox>
 
         <HBox spacing="10" GridPane.columnIndex="0" GridPane.rowIndex="17">
             <Label text="Uso preponderante:"/>
-            <CheckBox text="Consumo Humano"/>
-            <CheckBox text="Balneabilidade"/>
+            <CheckBox text="Consumo Humano" fx:id="consumoHumano"/>
+            <CheckBox text="Balneabilidade" fx:id="balneabilidade"/>
+            <CheckBox text="Recreação" fx:id="Recreacao"/>
             <CheckBox fx:id="checkOutros" text="OUTROS (Especifique)" />
             <TextField fx:id="campoEspecificar" promptText="Especifique..." disable="true"/>
 
@@ -92,7 +93,7 @@
             <CheckBox text="Microbiologicas" fx:id="microbiologicas" />
             <CheckBox text="Quimica" fx:id="quimica"/>
             <CheckBox text="Fisico-Quimica" fx:id="fisioQuimica"/>
-            <TextField promptText="Especifique:" fx:id="especificarAnalise"/>
+            <TextArea promptText="Especifique" fx:id="especificarAnalise" GridPane.columnIndex="1" GridPane.rowIndex="21" maxHeight="50" wrapText="true" />
         </HBox>
 
         <Label text="Responsavel pelo Recebimento" GridPane.columnIndex="0" GridPane.rowIndex="19"/>
@@ -102,7 +103,7 @@
         <DatePicker fx:id="data" GridPane.columnIndex="1" GridPane.rowIndex="20"/>
 
         <Label text="OBS:" GridPane.columnIndex="0" GridPane.rowIndex="21"/>
-        <TextField fx:id="obs" GridPane.columnIndex="1" GridPane.rowIndex="21"/>
+        <TextArea fx:id="obs" GridPane.columnIndex="1" GridPane.rowIndex="21" maxHeight="100" wrapText="true" />
 
     </GridPane>
 </ScrollPane>

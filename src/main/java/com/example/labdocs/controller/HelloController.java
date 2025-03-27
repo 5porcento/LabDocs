@@ -7,16 +7,15 @@ import com.itextpdf.layout.element.Paragraph;
 import javafx.fxml.FXML;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.DatePicker;
+import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import java.io.FileNotFoundException;
 import java.time.format.DateTimeFormatter;
 import java.util.Arrays;
-import java.util.List;
-import java.util.stream.Collectors;
 
 public class HelloController {
     @FXML
-    private TextField nomeAluno, emailAluno,nomeOrientador ,telefoneAluno,horaColeta, nomeProjeto, localColeta, numeroAmostras,responsavelColeta,metais,descricaoPontos;
+    private TextField nomeAluno, emailAluno,nomeOrientador ,telefoneAluno,horaColeta, nomeProjeto, localColeta, numeroAmostras,responsavelColeta;
     @FXML
     private DatePicker dataColeta;
     @FXML
@@ -25,26 +24,29 @@ public class HelloController {
             microbiologicas,quimica,fisioQuimica,
             torneira,torneiraDeFiltro,torneiraDeBebedouro,caixaDAgua,cisterena,outroPonto,
             turbidez,cor,ph,condutividade,od,std,nitrato,nitrito,fosfaro,colifTotal,colifTermo,eColi;
-
+    @FXML
+    private TextArea metais, descricaoPontos;
 
     @FXML
     private void gerarPdf() {
         String caminho = "Relatorio_Coleta.pdf";
 
         // Obter os valores dos CheckBox com o novo método
-        String nivelFormacao = getSelectedCheckboxes(
+
+        //TODO adicionar metodo para reduzir isso
+        String nivelFormacao = PdfController.getSelectedCheckboxes(
                 Arrays.asList(tcc,mestrado,doutorado,iniciacaoCientifica)
         );
-        String origemColeta = getSelectedCheckboxes(
+        String origemColeta = PdfController.getSelectedCheckboxes(
                 Arrays.asList(saa,rio,lago,igarape,outro,sai,sac,fonte)
         );
-        String analisesSolicitadas = getSelectedCheckboxes(
+        String analisesSolicitadas = PdfController.getSelectedCheckboxes(
                 Arrays.asList(microbiologicas,quimica,fisioQuimica)
         );
-        String pontoColeta = getSelectedCheckboxes(
+        String pontoColeta =PdfController.getSelectedCheckboxes(
                 Arrays.asList(torneira,torneiraDeFiltro,torneiraDeBebedouro,caixaDAgua,cisterena,outroPonto)
         );
-        String parametroColeta = getSelectedCheckboxes(
+        String parametroColeta = PdfController.getSelectedCheckboxes(
                 Arrays.asList(turbidez,cor,ph,condutividade,od,std,nitrato,nitrito,fosfaro,colifTotal,colifTermo,eColi)
         );
 
@@ -80,14 +82,6 @@ public class HelloController {
         } catch (FileNotFoundException e) {
             PdfController.exibirAlerta("Erro", "Não foi possível criar o PDF.");
         }
-    }
-
-    // Método para obter os valores dos CheckBox marcados
-    private String getSelectedCheckboxes(List<CheckBox> checkBoxes) {
-        return checkBoxes.stream()
-                .filter(CheckBox::isSelected).map(CheckBox::getText)
-                .collect(Collectors
-                        .joining(", "));
     }
 
 }

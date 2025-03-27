@@ -11,6 +11,7 @@
 <?import javafx.scene.control.ScrollPane?>
 
 
+<?import javafx.scene.control.TextArea?>
 <ScrollPane fitToWidth="true" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.labdocs.controller.HelloController">
 <GridPane alignment="CENTER" vgap="10" hgap="10" stylesheets="style.css">
 
@@ -112,10 +113,10 @@
     </HBox>
 
     <Label text="Descrição dos Pontos:" GridPane.columnIndex="0" GridPane.rowIndex="17"/>
-    <TextField fx:id="descricaoPontos" GridPane.columnIndex="1" GridPane.rowIndex="17"/>
+    <TextArea fx:id="descricaoPontos" GridPane.columnIndex="1" GridPane.rowIndex="17" maxHeight="60" wrapText="true" />
 
     <Label text="Elementos Traços(Metais):" GridPane.columnIndex="0" GridPane.rowIndex="18"/>
-    <TextField fx:id="metais" GridPane.columnIndex="1" GridPane.rowIndex="18"/>
+    <TextArea fx:id="metais" GridPane.columnIndex="1" GridPane.rowIndex="18" maxHeight="80" wrapText="true" />
 
     <Button text="Gerar PDF" onAction="#gerarPdf" GridPane.columnSpan="2" GridPane.rowIndex="19"/>
 
