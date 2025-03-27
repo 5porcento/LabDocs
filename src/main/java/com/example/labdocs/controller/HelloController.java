@@ -1,4 +1,4 @@
-package com.example.labdocs;
+package com.example.labdocs.controller;
 
 import com.itextpdf.kernel.pdf.PdfDocument;
 import com.itextpdf.kernel.pdf.PdfWriter;
@@ -8,7 +8,6 @@ import javafx.fxml.FXML;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextField;
-import javafx.scene.control.Alert;
 import java.io.FileNotFoundException;
 import java.time.format.DateTimeFormatter;
 import java.util.Arrays;
@@ -22,7 +21,7 @@ public class HelloController {
     private DatePicker dataColeta;
     @FXML
     private CheckBox tcc,mestrado,doutorado,iniciacaoCientifica,saa,
-            rio,lago,igarape,outro,sai,sac,
+            rio,lago,igarape,outro,sai,sac,fonte,
             microbiologicas,quimica,fisioQuimica,
             torneira,torneiraDeFiltro,torneiraDeBebedouro,caixaDAgua,cisterena,outroPonto,
             turbidez,cor,ph,condutividade,od,std,nitrato,nitrito,fosfaro,colifTotal,colifTermo,eColi;
@@ -37,7 +36,7 @@ public class HelloController {
                 Arrays.asList(tcc,mestrado,doutorado,iniciacaoCientifica)
         );
         String origemColeta = getSelectedCheckboxes(
-                Arrays.asList(saa,rio,lago,igarape,outro,sai,sac)
+                Arrays.asList(saa,rio,lago,igarape,outro,sai,sac,fonte)
         );
         String analisesSolicitadas = getSelectedCheckboxes(
                 Arrays.asList(microbiologicas,quimica,fisioQuimica)
@@ -77,18 +76,10 @@ public class HelloController {
             document.add(new Paragraph("Elementos Traços(Metais) : " + metais.getText()));
 
             document.close();
-            exibirAlerta("Sucesso", "PDF gerado com sucesso: " + caminho);
+            PdfController.exibirAlerta("Sucesso", "PDF gerado com sucesso: " + caminho);
         } catch (FileNotFoundException e) {
-            exibirAlerta("Erro", "Não foi possível criar o PDF.");
+            PdfController.exibirAlerta("Erro", "Não foi possível criar o PDF.");
         }
-    }
-
-    private void exibirAlerta(String titulo, String mensagem) {
-        Alert alert = new Alert(Alert.AlertType.INFORMATION);
-        alert.setTitle(titulo);
-        alert.setHeaderText(null);
-        alert.setContentText(mensagem);
-        alert.showAndWait();
     }
 
     // Método para obter os valores dos CheckBox marcados

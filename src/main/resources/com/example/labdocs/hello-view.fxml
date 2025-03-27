@@ -11,7 +11,7 @@
 <?import javafx.scene.control.ScrollPane?>
 
 
-<ScrollPane fitToWidth="true" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.labdocs.HelloController">
+<ScrollPane fitToWidth="true" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.labdocs.controller.HelloController">
 <GridPane alignment="CENTER" vgap="10" hgap="10" stylesheets="style.css">
 
    <Label text="Nome do Aluno: " GridPane.columnIndex="0" GridPane.rowIndex="0"/>
@@ -52,6 +52,7 @@
         <CheckBox text="Igarapé" fx:id="igarape"/>
         <CheckBox text="Coletivo(SAC)" fx:id="sac"/>
         <CheckBox text="Individual(SAI)" fx:id="sai"/>
+        <CheckBox text="Fonte" fx:id="fonte"/>
         <CheckBox text="Outro" fx:id="outro"/>
     </HBox>
 

@@ -8,4 +8,7 @@ module com.example.labdocs {
 
     opens com.example.labdocs to javafx.fxml;
     exports com.example.labdocs;
+
+    opens com.example.labdocs.controller to javafx.fxml;
+    exports com.example.labdocs.controller;
 }

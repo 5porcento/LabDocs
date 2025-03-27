@@ -17,12 +17,12 @@ public class MenuController {
 
     @FXML
     private void abrirRelatorioAmostras() throws IOException {
-        abrirNovaTela("hello-view.fxml", "Relatório de Amostras");
+        abrirNovaTela("hello-view.fxml", "Ficha de Controle  de Analise de aluno");
     }
 
     @FXML
     private void abrirResumoColeta() throws IOException {
-        abrirNovaTela("ResumoColeta.fxml", "Resumo da Coleta");
+        abrirNovaTela("resumoColeta.fxml", "Ficha de Controle  de Recebimento de amostras");
     }
 
     private void abrirNovaTela(String  fxmlFile, String titulo) throws IOException {
